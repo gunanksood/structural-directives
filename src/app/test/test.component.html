@@ -1,0 +1,63 @@
+
+
+<h2 *ngIf = "true ; else else_block"> Hey welcome to Structural Directives </h2>
+<ng-template #else_block>
+  <h2>Welcome statement is hidden </h2>
+</ng-template>
+
+<div *ngIf = "false ; then thenblock ;else elseblock"></div>
+<ng-template #thenblock>
+  <h2> This is then block </h2>
+</ng-template>
+
+<ng-template #elseblock>
+  <h2>This is the else block Usecase of nfIf directive </h2>
+</ng-template>
+
+<h2> Using ngSwitch Directive</h2>
+<input type = "text" #colortext  >
+<br>
+<button (click) = method(colortext.value) > Submit</button>
+<div [ngSwitch] = "colorused" [style.color] = "colorused" >
+  <div *ngSwitchCase="'red'"> This is red Color </div>
+  <div *ngSwitchCase="'blue'"> This is blue Color </div>
+  <div *ngSwitchCase="'green'"> This is green Color </div>
+  <div *ngSwitchCase="'yellow'"> This is yellow Color </div>
+  <div *ngSwitchDefault>This color is not present in ngSwitch cases</div>
+
+</div>
+
+
+<h2> Using ngFor Directive</h2>
+
+<div *ngFor="let item of colors ; index as in">
+  <h3 [style.color] = "item" >{{in}} {{item}}</h3>
+</div>
+
+<h2> {{"Data i got from Parent Component is: Hello " +  parentData}}</h2>
+
+<button (click) = "fireevent()"> Send some data to Parent Component</button>
+<br>
+<h1> Pipes implementation </h1>
+<br>
+{{ text | uppercase }}
+<br>
+{{ text | lowercase }}
+<br>
+{{ text | titlecase }}
+<br>
+{{ text | slice : 12 }}
+<br>
+{{person | json }}
+<br>
+{{0.25 | percent}}
+<br>
+{{5.67 | number : '1.3-4'}}
+<br>
+{{0.25 | currency : 'INR' }}
+<br>
+<h2>{{ date }}</h2>
+
+<h2>{{ date | date : 'shortDate'}}</h2>
+
+<h2>{{ date | date : 'shortTime'}}</h2>
